@@ -1,0 +1,58 @@
+<div class="modal-header" style="z-index: 100;">
+    <h5>Buscar Alumno</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" routerLink="/alumnos"></button>
+</div>
+<div class="modal-body">
+    <div class="d-flex justify-content-center ">
+        <h6>Datos</h6>
+    </div>
+    <form>
+        <fieldset class="mt-2">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control" minlength="3" pattern="([a-zA-Z]+\s)*[a-zA-Z]+$">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" class="form-control" minlength="3" pattern="([a-zA-Z]+\s)*[a-zA-Z0-9]+$">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="matricula">Matricula</label>
+            <input type="number" name="matricula" class="form-control">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="estatus">Estatus</label>
+            <select class="form-select" name="estatus">
+                <option selected>Todos</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
+        </fieldset>
+    </form>
+    <div class="mt-4 d-flex justify-content-center">
+        <button class="btn btn-primary col-6" (click)="buscarAlumno()">Buscar</button>
+    </div>
+</div>
+<div class="modal-footer mt-2 d-flex justify-content-center">
+    <h6 class="m-4">Resultados</h6>
+    <div class="text-danger" id="noAlumnos" hidden>
+        No hay registros para desplegar
+    </div>
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Matricula</th>
+                <th>Estatus</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumno of alumnos">
+                <td>{{alumno.Nombre}}</td>
+                <td>{{alumno.Usuario}}</td>
+                <td>{{alumno.Matricula}}</td>
+                <td>{{alumno.Estatus}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

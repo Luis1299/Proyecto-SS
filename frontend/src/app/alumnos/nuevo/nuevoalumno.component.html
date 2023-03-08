@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h5>Agregar Alumno</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <div class="alert alert-success" role="alert" hidden id="alumno-success">
+        Registro grabado con éxito
+    </div>
+    <div class="alert alert-danger" role="alert" id="alumno-result" hidden>{{result}}</div>
+    <form>
+        <fieldset class="pt-2">
+            <label for="matricula">Matricula</label>
+            <input type="number" name="matricula" class="form-control" value="2312341" required min="1">
+            <div id="matricula-error" hidden class="text-danger">Matricula ya en uso</div>
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control" value="nombrenuevo" required minlength="3" pattern="([a-zA-Z]+\s)*[a-zA-Z]+$">
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="apellidoPaterno">Apellido Paterno</label>
+            <input type="text" name="apellidoPaterno" class="form-control" value="apepp" required minlength="3" pattern="[a-zA-Z]+$">
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="apellidoMaterno">Apellido Materno</label>
+            <input type="text" name="apellidoMaterno" class="form-control" value="apemm" required minlength="3" pattern="[a-zA-Z]+$">
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="usuario">Usuario (Debe iniciar con una letra)</label>
+            <input type="text" name="usuario" class="form-control" value="usuarioangnuevo" required minlength="3" pattern="([a-zA-Z]+\s)*[a-zA-Z0-9]+$">
+            <div id="usuario-error" hidden class="text-danger">Usuario ya en uso</div>
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" name="contrasena" class="form-control" value="contrasena" required minlength="4" pattern="[a-zA-Z0-9]+$">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="estatus">Estatus</label>
+            <select class="form-select" name="estatus">
+                <option value="Activo" selected>Activo</option>
+                <option value="Inactivo">Inactivo</option>
+                </select>
+        </fieldset>
+        <fieldset class="mt-3 d-flex justify-content-end">
+            <button class="btn btn-warning" (click)="agregarAlumno()">Guardar</button>
+        </fieldset>
+    </form>
+</div>

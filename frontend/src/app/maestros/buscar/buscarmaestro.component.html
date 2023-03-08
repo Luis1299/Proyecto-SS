@@ -1,0 +1,65 @@
+<div class="modal-header" style="z-index: 100;">
+    <h5>Buscar Maestro</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" routerLink="/maestros"></button>
+</div>
+<div class="modal-body">
+    <div class="d-flex justify-content-center ">
+        <h6>Datos</h6>
+    </div>
+    <form id="formSearch">
+        <fieldset class="mt-2">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control" minlength="3" pattern="([a-zA-Z]+\s)*[a-zA-Z]+$">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" class="form-control" minlength="3" pattern="([a-zA-Z]+\s)*[a-zA-Z0-9]+$">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="noempleado">No Empleado</label>
+            <input type="number" name="noempleado" class="form-control">
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="estatus">Estatus</label>
+            <select class="form-select" name="estatus">
+                <option selected>Todos</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
+        </fieldset>
+        <fieldset class="mt-2">
+            <label for="tipo">Tipo de maestro</label>
+            <select class="form-select" name="tipo">
+                <option value="-1" selected>Todos</option>
+                <option value="{{tipo.IdTipo}}" *ngFor="let tipo of tipos">{{tipo.Tipo}}</option>
+            </select>
+        </fieldset>
+    </form>
+    <div class="mt-4 d-flex justify-content-center">
+        <button class="btn btn-primary col-6" (click)="buscarMaestro()">Buscar</button>
+    </div>
+</div>
+<div class="modal-footer mt-2 d-flex justify-content-center ">
+    <h6 class="m-4">Resultados</h6>
+    <div class="text-danger" id="noMaestros" hidden>
+        No hay registros para desplegar
+    </div>
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th>N Empleado</th>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Estatus</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr *ngFor="let maestro of maestros">
+                <td>{{maestro.NoEmpleado}}</td>
+                <td>{{maestro.Nombre}}</td>
+                <td>{{maestro.Usuario}}</td>
+                <td>{{maestro.Estatus}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

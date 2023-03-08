@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row justify-content-center mt-4 p-3">
+        <div class="col-12 col-sm-10 col-md-8 col-xl-4 border bg-light shadow-lg rounded p-4" style="margin-top: 5vh;">
+            <div class="justify-content-center d-flex mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16" style="fill: #56b9e9">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </div>
+            <h2 class="d-flex justify-content-center">Iniciar Sesion</h2>
+            <div id="errorText" class="text-danger text-center" hidden>
+                Usuario o Contraseña incorrectos
+            </div>
+            <form (submit)="submitForm()">
+                <fieldset class="m-3 mt-4">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" class="form-control" value="Usuario2" required minlength="4" pattern="[a-zA-Z0-9]+$">
+                    <div class="text-danger" hidden>
+                        ¡Usuario no valido, evite caracteres especiales!
+                    </div>
+                </fieldset>
+                <fieldset class="m-3 mt-2">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" class="form-control" value="Contrasena" required minlength="4" pattern="[a-zA-Z0-9]+$">
+                    <div class="text-danger" hidden>
+                        ¡Contraseña no valida, evite caracteres especiales!
+                    </div>
+                </fieldset>
+                <div class="justify-content-center d-flex">
+                    <input type="submit" class="btn btn-primary w-100 m-3 mt-4" value="Iniciar Sesion"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

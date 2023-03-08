@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h5>Editar Grupo</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" routerLink="/grupos"></button>
+</div>
+<div class="modal-body">
+    <div class="alert alert-success" role="alert" hidden id="grupo-success">
+        Registro grabado con éxito
+    </div>
+    <div class="alert alert-danger" role="alert" id="grupo-result" hidden>{{result}}</div>
+    <form>
+        <fieldset class="pt-2">
+            <label for="IdGrupo">Clave</label>
+            <input type="number" disabled name="IdGrupo" class="form-control" value="{{grupo.IdGrupo}}" required>
+            <div name="IdGrupo-error" hidden class="text-danger">Clave de grupo ya en uso</div>
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="cantidad">Cantidad de Alumnos</label>
+            <input type="number" name="cantidad" class="form-control" value="{{grupo.CantidadAlumnos}}" required min="0">
+            <div id="cantidad-error" hidden class="text-danger">Cantidad Invalida</div>
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="cveMateria">Materia</label>
+            <select class="form-select" name="materia">
+                <option value="{{grupo.Clave}}" selected>{{grupo.Nombre}}</option>
+                <option *ngFor="let materia of materias" value="{{materia.Clave}}">{{materia.Nombre}}</option>
+            </select>
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="estatus" class="form-check-label">Estatus</label>
+            <select class="form-select" name="estatus">
+                <option value="Activo" selected>Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+        </fieldset>
+        <fieldset class="mt-3 d-flex justify-content-end">
+            <button class="btn btn-danger m-4 mt-0 mb-0" (click)="deleteGrupo()">Borrar Grupo</button>
+            <button class="btn btn-warning" (click)="editGrupo()">Guardar Cambios</button>
+        </fieldset>
+    </form>
+</div>

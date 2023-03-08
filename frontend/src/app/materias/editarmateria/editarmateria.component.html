@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <h5>Editar Materia</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" routerLink="/materias"></button>
+</div>
+<div class="modal-body">
+    <form>
+        <fieldset class="pt-2">
+            <label for="cveMateria">Clave</label>
+            <input type="number" disabled name="cveMateria" class="form-control" value="{{materia.Clave}}" required>
+            <div name="cveMateria-error" hidden class="text-danger">Clave de materia ya en uso</div>
+        </fieldset>
+        <fieldset class="pt-2">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control" value="{{materia.Nombre}}" required>
+        </fieldset>
+        <fieldset class="pt-2">                        
+            <label for="estatus" class="form-check-label">Estatus</label>
+            <select class="form-select" name="estatus">
+                <option value="Activo" selected>Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+        </fieldset>
+        <fieldset class="mt-3 d-flex justify-content-end">
+            <button class="btn btn-danger m-4 mt-0 mb-0" (click)="deleteMateria()">Borrar Materia</button>
+            <button class="btn btn-warning" (click)="editMateria()" >Guardar Cambios</button>
+        </fieldset>
+    </form>
+</div>
+
+<!-- <div class="modal fade" id="alertModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>¿Desea borrar la materia? Cve: {{materia.Clave}}</h5>
+            </div>
+            <div class="modal-body">
+                <button class="btn btn-danger m-4 mt-0 mb-0" data-bs-dismiss="modal" aria-label="Close" (click)="deleteMateria()">Si</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">No</button>
+            </div>
+        </div>
+    </div>
+</div> -->
